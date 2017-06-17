@@ -46,12 +46,13 @@ format = json <br />
 
 Data Params:	None <br />
 
-Success Response:<br />
+Success Response: <br />
+
 	Code: 200 <br />
 
          Content: <br />
 
-{ <br />
+{ 
 
     status : “success”, 
     “data”:[
@@ -73,7 +74,9 @@ Success Response:<br />
 }
  <br />
 Error Response:<br />
+
 	Code: 400 General Error <br />
+
          Content: <br />
         { 
              “status” : “error”, <br />
@@ -175,7 +178,7 @@ numpy-1.13.0+mkl-cp36-cp36m-win_amd64.whl 	Python numpy package for windows OS. 
 
 scipy-0.19.0-cp36-cp36m-win_amd64	Python scipy package for windows OS
 
-## Installing
+## Installation
 
 ### Download Software
 
@@ -205,7 +208,7 @@ Download Postman from https://chrome.google.com/webstore/search/postman?hl=en fo
 
 Download application files from GitHub. GitHub Link is https://github.com/QianWangDallas/msp
 
-### install application on local machine
+### Install application on local machine
 running environment is windows 10 64bit.<br />
 
 Step 1. install Python. Read the below link for installation instruction under windows 10.
@@ -213,50 +216,62 @@ https://www.howtogeek.com/197947/how-to-install-python-on-windows/<br />
 
 Step 2. run Command Prompt with administration right and run setup.bat. The batch will install all requirements Python package.<br />
 
-Step 3. Under Command prompt and run “python machineStatusLog.py” to start application<br />
+### Running Application
 
-Step 4. Launch testing client Application (Postman)<br />
+Step 1. Under Command prompt and run “python machineStatusLog.py” to start application<br />
+
+Step 2. Launch testing client Application (Postman)<br />
+
 •	Lunch Chrome and click show Apps icon at left upper corner.<br />
+
 •	Click Postman icon to launch Postman.<br />
 <br />
-Step 5. Test REST API <br />
-Help REST API. <br />
-URL : 127.0.0.1:8080/ <br />
-Result: <br />
-Using a Machine Learning Library Scipy and Python create a clustering model. <br />
+
+### Test REST API <br />
+
+#### Help REST API. <br />
+
+    URL : 127.0.0.1:8080/ <br />
+
+    Method: GET <br />
+
+    Result: <br />
+
+    Using a Machine Learning Library Scipy and Python create a clustering model. <br />
  
-Using this model to predict anomalies that can potentially cause a failure <br />
+    Using this model to predict anomalies that can potentially cause a failure <br />
 
-of either the system overheating or the disc failing. <br />
+    of either the system overheating or the disc failing. <br />
 
-There are two REST APIs. Add machine status API and retrieve all anomaly <br />
+    There are two REST APIs. Add machine status API and retrieve all anomaly <br />
 
-machine status API.<br />
+    machine status API.<br />
 
-Add machine status API.<br />
+    Add machine status API.<br />
 
-	URL : /machine-status-logs? <br />
+    URL : /machine-status-logs? <br />
     
-	Method : POST. <br />
+    Method : POST. <br />
     
-	Need machine-name,cpu-temperature and disk-read-errors as post parameters<br />
+    Need machine-name,cpu-temperature and disk-read-errors as post parameters<br />
 
 <br />
-bRetrieve all anomaly machine status API <br />
-	URL : /machine-status-logs?anomaly=true&format=json <br />
+    Retrieve all anomaly machine status API <br />
+	
+    URL : /machine-status-logs?anomaly=true&format=json <br />
     
-	Method : GET. <br />
+    Method : GET. <br />
     
-	Need two parameters. anomaly and format<br />
+    Need two parameters. anomaly and format<br />
     
-Add machine status API<br />
+#### Add machine status API<br />
 
 
-URL: 127.0.0.1:8080/machine-status-logs<br />
+    URL: 127.0.0.1:8080/machine-status-logs<br />
 
-Method: POST<br />
+    Method: POST<br />
 
-Params:<br />
+    Params:<br />
 
 	machine-name=test_machine<br />
     
@@ -264,30 +279,32 @@ Params:<br />
         
         disk-read-errors=10<br />
 
-Result:<br />
-{
-    "status": "success",
-    "data": {
-        "machine_name": "test_machine",
-        "cpu_temperature": "54.1",
-        "disk_read_errors": "10",
-        "timestamp": 1497639379.6910198,
-        "anomaly": "false"
-    }
+    Result:<br />
+    {
+        "status": "success",
+        "data": {
+            "machine_name": "test_machine",
+            "cpu_temperature": "54.1",
+            "disk_read_errors": "10",
+            "timestamp": 1497639379.6910198,
+            "anomaly": "false"
+        }
 }<br />
-Retrieve all anomaly machine status API <br />
 
-URL : 127.0.0.1:8080/machine-status-logs <br />
+#### Retrieve all anomaly machine status API <br />
 
-Method: GET <br />
+    URL : 127.0.0.1:8080/machine-status-logs <br />
 
-Params:<br />
+    Method: GET <br />
+
+    Params:<br />
         anomaly=true <br />
         format=json<br />
-Result:<br />
-{
-    "status": "success", <br />
-    "data": [ <br />
+
+    Result:<br />
+    {
+        "status": "success", <br />
+        "data": [ <br />
         {
             "machine_name": "test_machine",
             "cpu_temperature": "60",
