@@ -1,4 +1,3 @@
-
 # Anomaly Machine Status Predictor
 
 ## Overview of Project
@@ -15,16 +14,17 @@ Service Name: machine-status-logs <br />
 
 URL: http://127.0.0.1:8080/machine-status-logs<br />
 
-Resource: machine-status-logs
+Resource: machine-status-logs <br />
 
 ### Retrieve all potential anomaly machine status
-Title	Show all potential anomaly machine status logs  <br />
 
-URL	/machine-status-logs?anomaly=true&format=json <br />
+Title : 	Show all potential anomaly machine status logs  <br />
 
-Method	GET<br />
+URL:	/machine-status-logs?anomaly=true&format=json <br />
 
-URL Params	<br />
+Method:	GET<br />
+
+URL Params:	<br />
 
 Optional: <br />
 
@@ -32,19 +32,24 @@ anomaly=[string] <br />
 
 default value: true<br />
 
-example: anomaly = true <br />
+example: <br />
+
+anomaly = true <br />
 
 format=[string] <br />
 
->default value: json <br />
+default value: json <br />
 
-example: format = json <br />
+example:<br />
 
-Data Params	None <br />
+format = json <br />
 
-Success Response	Code: 200 <br />
+Data Params:	None <br />
 
-<br />Content: <br />
+Success Response:<br />
+	Code: 200 <br />
+
+         Content: <br />
 
 { <br />
 
@@ -56,7 +61,7 @@ Success Response	Code: 200 <br />
                      Disc_read_errors: 40000,
                      timestamp: 1497636462.1364536,
                      anomaly:true
-/              },
+              },
               {
                      machine_name: test-machine,
                      cpu_temperature: 100,
@@ -67,36 +72,44 @@ Success Response	Code: 200 <br />
     ] 
 }
  <br />
-Error Response	Code: 400 General Error <br />
-Content: <br />
-    { “status” : “error”, <br />
-       “message” : "Error has occurred when call machine status log API" <br /> 
-     }<br />
-rSample Call	$.ajax({
-  url: "/machine-status-logs",
-  dataType: "json",
-  data : { 
-ranomaly : true,
-format : json
-  },
+Error Response:<br />
+	Code: 400 General Error <br />
+         Content: <br />
+        { 
+             “status” : “error”, <br />
+            “message” : "Error has occurred when call machine status log API" <br /> 
+        }<br />
+
+Sample Call:<br />
+	$.ajax({
+        url: "/machine-status-logs",
+       dataType: "json",
+       data : { 
+        ranomaly : true,
+        format : json
+  } ,
   type : "GET",
   success : function(r) {
-    console.log(r);
-  }
+   console.log(r);
+  }<br />
 });
 <br />
-### Add machine status to server side 
-b
-Title	Add a new machine status log  <br />
 
-URL	/machine-status-logs?machine-name=:machine-name&cpu-temperature=: cpu-temperature&disk-read-errors=:disk-read-errors <br/>
+### Add machine status to server side 
+
+Title	:Add a new machine status log  <br />
+
+URL	:/machine-status-logs?machine-name=:machine-name&cpu-temperature=: cpu-temperature&disk-read-errors=:disk-read-errors <br/>
+
 Method	POST <br />
-URL Params	None <br />  
-Data Params	{<br />
+
+URL Params:	None <br />  
+
+Data Params:	{<br />
   machine-name : [string] <br />
   cpu-temperature  : [float], <br />
   disk-read-errors : [integer] <br />
-<}
+}
 <br />
 Example: <br />
 {
@@ -105,9 +118,10 @@ Example: <br />
   disk-read-errors : 10
 }
 <br />
-Success Response	Code: 200 <br />
-Content: <br />
-{ 
+Success Response:<br />
+	Code: 200 <br />
+        Content: <br />
+       { 
     status : “success”,
     “data”:{
        machine_name : test-machine,
@@ -117,14 +131,17 @@ Content: <br />
        timestamp: 1497638221.0870788  
     } 
 }<br />
-Error Response	<br />
-Code: 400 General Error <b
-Content: 
+
+Error Response:
+	<br />
+Code: 400 General Error <br />
+Content:  <br />
 { “status” : “error”,
     “message” : "Error has occurred when call machine status log API" 
  }
  <br />
-Sample Call	$.ajax({
+Sample Call:<br />
+	$.ajax({
   url: "/machine-status-logs",
   dataType: "json",
   data : { 
@@ -163,12 +180,17 @@ scipy-0.19.0-cp36-cp36m-win_amd64	Python scipy package for windows OS
 ### Download Software
 
 #### Python
+
 Download Python from https://www.python.org/downloads/windows/.<br />
+
 File name: python-3.6.1-amd64.exe <br />
+
 Version : 3.6.1<br />
+
 OS: windows 10 64bit<br />
 
 #### Extra Python package
+
 •	numpy, Version 1.13.0+mkl <br />
 •	SciPy Package, Version 0.19.0<br />
 •	Flask, Version 0.12.2. More detail information for install Flask. Please read the below link http://flask.pocoo.org/docs/0.12/installation/<br />
@@ -176,9 +198,11 @@ OS: windows 10 64bit<br />
 •	Pandas, Version 0.20.2<br />
 
 #### Postman
+
 Download Postman from https://chrome.google.com/webstore/search/postman?hl=en for Chrome<br />
 
 #### MachineStatusLog Application Package
+
 Download application files from GitHub. GitHub Link is https://github.com/QianWangDallas/msp
 
 ### install application on local machine
@@ -192,34 +216,54 @@ Step 2. run Command Prompt with administration right and run setup.bat. The batc
 Step 3. Under Command prompt and run “python machineStatusLog.py” to start application<br />
 
 Step 4. Launch testing client Application (Postman)<br />
-•	Lunch Chrome and click show Apps icon at left upper corner.
-•	Click Postman icon to launch Postman.
+•	Lunch Chrome and click show Apps icon at left upper corner.<br />
+•	Click Postman icon to launch Postman.<br />
 <br />
 Step 5. Test REST API <br />
 Help REST API. <br />
 URL : 127.0.0.1:8080/ <br />
 Result: <br />
-Using a Machine Learning Library Scipy and Python create a clustering model. 
-Using this model to predict anomalies that can potentially cause a failure 
-of either the system overheating or the disc failing. 
-There are two REST APIs. Add machine status API and retrieve all anomaly 
-machine status API.
-Add machine status API.
-	URL : /machine-status-logs?
-	Method : POST.
-	Need machine-name,cpu-temperature and disk-read-errors as post parameters
+Using a Machine Learning Library Scipy and Python create a clustering model. <br />
+ 
+Using this model to predict anomalies that can potentially cause a failure <br />
 
-bRetrieve all anomaly machine status API
-	URL : /machine-status-logs?anomaly=true&format=json
-	Method : GET. 
-	Need two parameters. anomaly and format
-Add machine status API
-URL: 127.0.0.1:8080/machine-status-logs
-Method: POST
-Params:
-	machine-name=test_machine
-cpu-temperature=54.1
-disk-read-errors=10
+of either the system overheating or the disc failing. <br />
+
+There are two REST APIs. Add machine status API and retrieve all anomaly <br />
+
+machine status API.<br />
+
+Add machine status API.<br />
+
+	URL : /machine-status-logs? <br />
+    
+	Method : POST. <br />
+    
+	Need machine-name,cpu-temperature and disk-read-errors as post parameters<br />
+
+<br />
+bRetrieve all anomaly machine status API <br />
+	URL : /machine-status-logs?anomaly=true&format=json <br />
+    
+	Method : GET. <br />
+    
+	Need two parameters. anomaly and format<br />
+    
+Add machine status API<br />
+
+
+URL: 127.0.0.1:8080/machine-status-logs<br />
+
+Method: POST<br />
+
+Params:<br />
+
+	machine-name=test_machine<br />
+    
+        cpu-temperature=54.1<br />
+        
+        disk-read-errors=10<br />
+
 Result:<br />
 {
     "status": "success",
@@ -232,10 +276,13 @@ Result:<br />
     }
 }<br />
 Retrieve all anomaly machine status API <br />
+
 URL : 127.0.0.1:8080/machine-status-logs <br />
+
 Method: GET <br />
+
 Params:<br />
-	anomaly=true <br />
+        anomaly=true <br />
         format=json<br />
 Result:<br />
 {
